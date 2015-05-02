@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "LalalaDataBase.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [LalalaDataBase initDataBase];
     return YES;
 }
 
