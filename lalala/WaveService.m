@@ -9,7 +9,7 @@
 #import "WaveService.h"
 #import "math.h"
 #import "AudioPlay.h"
-
+#import "testAudioPlay.h"
 
 const double freqOfTone = 20000;
 const int sampleRate = 44100;
@@ -128,8 +128,10 @@ int pos;
     
     
     [self testData];
-    [[[AudioPlay alloc]init] initAudioWithPCMData:generatedSnd andSize:pos];
+    NSData *aData=[[NSData alloc]initWithBytes:generatedSnd length:pos];
+    [AudioPlay initAudioWithPCMData:aData];
     
+    //[[testAudioPlay alloc] initWithAudio:aData];
     
     
 }

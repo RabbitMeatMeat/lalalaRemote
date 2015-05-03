@@ -51,6 +51,7 @@
 		72BE416D1AF3EF2100074B48 /* img_device_tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 72BE41621AF3EF2100074B48 /* img_device_tv.png */; };
 		72BE41701AF3F27D00074B48 /* LalalaDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BE416F1AF3F27D00074B48 /* LalalaDataBase.m */; };
 		72BE41731AF4007900074B48 /* DeviceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BE41721AF4007900074B48 /* DeviceItem.m */; };
+		72C075311AF605920070D915 /* testAudioPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C075301AF605920070D915 /* testAudioPlay.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,8 @@
 		72BE416F1AF3F27D00074B48 /* LalalaDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LalalaDataBase.m; sourceTree = "<group>"; };
 		72BE41711AF4007900074B48 /* DeviceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceItem.h; sourceTree = "<group>"; };
 		72BE41721AF4007900074B48 /* DeviceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceItem.m; sourceTree = "<group>"; };
+		72C0752F1AF605920070D915 /* testAudioPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testAudioPlay.h; sourceTree = "<group>"; };
+		72C075301AF605920070D915 /* testAudioPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testAudioPlay.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +279,8 @@
 				7282C92E1AF4ACB3005315C7 /* WaveService.m */,
 				7282C9341AF51000005315C7 /* AudioPlay.h */,
 				7282C9351AF51000005315C7 /* AudioPlay.m */,
+				72C0752F1AF605920070D915 /* testAudioPlay.h */,
+				72C075301AF605920070D915 /* testAudioPlay.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 				72BE41701AF3F27D00074B48 /* LalalaDataBase.m in Sources */,
 				72BE41491AF3ECAB00074B48 /* DCSubButton.m in Sources */,
 				72BE411C1AF3ABBA00074B48 /* RemoteViewController.m in Sources */,
+				72C075311AF605920070D915 /* testAudioPlay.m in Sources */,
 				72B0459C1AF3586100859CF2 /* BrandTableViewController.m in Sources */,
 				72BE413F1AF3EC6400074B48 /* FMResultSet.m in Sources */,
 				72B045831AF335EC00859CF2 /* DeviceTableViewController.m in Sources */,
