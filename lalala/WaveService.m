@@ -129,7 +129,7 @@ int pos;
     
     [self testData];
     NSData *aData=[[NSData alloc]initWithBytes:generatedSnd length:pos];
-    [AudioPlay initAudioWithPCMData:aData];
+    [[AudioPlay alloc]initAudioWithPCMData:aData];
     
     //[[testAudioPlay alloc] initWithAudio:aData];
     

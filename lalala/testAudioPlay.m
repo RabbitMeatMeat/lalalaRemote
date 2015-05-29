@@ -1,19 +1,20 @@
 //
-//  testAudioPlay.m
+//  AudioPlay.m
 //  lalala
 //
-//  Created by Rabbit.Meat on 15/5/3.
-//  Copyright (c) 2015年 Rabbit.Meat. All rights reserved.
+//  Created by Swing on 15/5/2.
+//  Copyright (c) 2015年 Swing. All rights reserved.
 //
 
 #import "testAudioPlay.h"
-
-#define AVCODEC_MAX_AUDIO_FRAME_SIZE  4096*2// (0x10000)/4
+#define AVCODEC_MAX_AUDIO_FRAME_SIZE  4096*2*4// (0x10000)
 //static UInt32 gBufferSizeBytes=0x10000;//65536
 static UInt32 gBufferSizeBytes=0x10000;//It must be pow(2,x)
 Byte *pcmDataBuffer;
 int pcmDataSzie;
 int pos;
+
+
 @implementation testAudioPlay
 
 @synthesize queue;
@@ -21,8 +22,6 @@ int pos;
 //回调函数(Callback)的实现
 static void BufferCallback(void *inUserData,AudioQueueRef inAQ,
                            AudioQueueBufferRef buffer){
-    testAudioPlay* player=(__bridge testAudioPlay*)inUserData;
-    [player audioQueueOutputWithQueue:inAQ queueBuffer:buffer];
 }
 
 
@@ -34,7 +33,7 @@ static void BufferCallback(void *inUserData,AudioQueueRef inAQ,
     UInt32 numPackets=numPacketsToRead;
     
     //成功读取时
-   // numBytes=fread(inbuf, 1, numPackets*4,wavFile);
+    // numBytes=fread(inbuf, 1, numPackets*4,wavFile);
     
     AudioQueueBufferRef outBufferRef=audioQueueBuffer;
     NSData *aData=[[NSData alloc]initWithBytes:inbuf length:numBytes];
@@ -65,14 +64,14 @@ static void BufferCallback(void *inUserData,AudioQueueRef inAQ,
     
     //取得音频数据格式
     {
-        dataFormat.mSampleRate=44100;//采样频率
+        dataFormat.mSampleRate=40000;//采样频率
         dataFormat.mFormatID=kAudioFormatLinearPCM;
-        dataFormat.mFormatFlags=kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;
-        dataFormat.mBytesPerFrame=4;
-        dataFormat.mBytesPerPacket=4;
+        // dataFormat.mFormatFlags=kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;
+        dataFormat.mBytesPerFrame=2;
+        dataFormat.mBytesPerPacket=2;
         dataFormat.mFramesPerPacket=1;//wav 通常为1
         dataFormat.mChannelsPerFrame=2;//通道数
-        dataFormat.mBitsPerChannel=16;//采样的位数
+        dataFormat.mBitsPerChannel=8;//采样的位数
         dataFormat.mReserved=0;
     }
     
@@ -124,6 +123,7 @@ static void BufferCallback(void *inUserData,AudioQueueRef inAQ,
     
     
     if(numBytes>0){
+        
         memcpy(outBufferRef->mAudioData, aData.bytes, aData.length);
         outBufferRef->mAudioDataByteSize=numBytes;
         AudioQueueEnqueueBuffer(queue, outBufferRef, 0, nil);

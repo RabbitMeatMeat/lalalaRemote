@@ -35,11 +35,11 @@ FMDatabase *db;
         return;
     }
     //[db executeUpdate:@"drop database swing.db"];
-    //[self deleteTableData];
-   // [self createTable];
-    //[self insertDeviceData];
-    //[self insertBrandData];
-    //[self insertCodeData];
+    [self deleteTableData];
+    [self createTable];
+    [self insertDeviceData];
+    [self insertBrandData];
+    [self insertCodeData];
     [self testData];
     [db close];
 }
@@ -156,17 +156,17 @@ FMDatabase *db;
     
     
     NSString *insertCodeTable = @"insert into CODE(device, brand, buttonKey, userCode, dataCode) values(?,?,?,?,?)";
-    if (![db executeUpdate:insertCodeTable, @"TV",@"AUX",@"UP", 0, 0]) {
+    if (![db executeUpdate:insertCodeTable, @"TV",@"AUX",@"UP", [NSNumber numberWithInt:0], [NSNumber numberWithInt:0]]) {
         NSLog(@"Coud not insertCodeTable");
         // return;
     }
     
-    if (![db executeUpdate:insertCodeTable, @"TV2",@"AUX2",@"UP", 0, 0]) {
+    if (![db executeUpdate:insertCodeTable, @"TV2",@"AUX2",@"UP", [NSNumber numberWithInt:0], [NSNumber numberWithInt:0]]) {
         NSLog(@"Coud not insertCodeTable");
         // return;
     }
     
-    if (![db executeUpdate:insertCodeTable, @"TV3",@"AUX3",@"UP", 0, 0]) {
+    if (![db executeUpdate:insertCodeTable, @"TV3",@"AUX3",@"UP", [NSNumber numberWithInt:0], [NSNumber numberWithInt:0]]) {
         NSLog(@"Coud not insertCodeTable");
         // return;
     }
