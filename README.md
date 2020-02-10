@@ -1,6 +1,5 @@
 # LaLaLaRemove
 
-for 玉美酱
 
 ##ViewController
 
